@@ -1,4 +1,4 @@
-framework module mParticle-Adobe {
+framework module mParticle_Adobe {
     umbrella header "mParticle-Adobe/Include/mParticle_Adobe.h"
 
     export *
