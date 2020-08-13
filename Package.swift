@@ -4,9 +4,10 @@ import PackageDescription
 let package = Package(
     name: "mparticle-apple-integration-adobe",
     platforms: [.iOS(.v9)],
-    // platforms: [.iOS("11.0")],
     products: [
-        .library(name: "mparticle-apple-integration-adobe", targets: ["mparticle-apple-integration-adobe"])
+        .library(
+            name: "mparticle-apple-integration-adobe",
+            targets: ["mparticle-apple-integration-adobe"])
     ],
     dependencies: [
         .package(
@@ -19,7 +20,11 @@ let package = Package(
             dependencies: [
                 "mParticle-Apple-SDK"
             ],
-            path: "mParticle-Adobe"
+            path: "mParticle-Adobe",
+            publicHeadersPath: "./Include",
+            cSettings: [
+                CSetting.headerSearchPath("./**"),
+            ]
         )
     ]
 )
