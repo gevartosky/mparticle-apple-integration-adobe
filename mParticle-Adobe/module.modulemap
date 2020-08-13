@@ -1,7 +1,6 @@
-framework module mparticle-apple-integration-adobe {
+framework module mParticle-Adobe {
     umbrella header "mParticle-Adobe/Include/mParticle_Adobe.h"
 
     export *
     module * { export * }
 }
-
