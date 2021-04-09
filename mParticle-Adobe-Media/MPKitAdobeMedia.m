@@ -206,7 +206,7 @@ static NSString *const launchAppIdKey = @"launchAppId";
             break;
         }
         case MPMediaEventNameAdStart: {
-            NSDictionary* adObject = [ACPMedia createAdObjectWithName:mediaEvent.adContent.title adId:mediaEvent.adContent.id position:mediaEvent.adContent.placement.doubleValue length:mediaEvent.adContent.duration.doubleValue];
+            NSDictionary* adObject = [ACPMedia createAdObjectWithName:mediaEvent.adContent.title adId:mediaEvent.adContent.id position:mediaEvent.adContent.position.doubleValue length:mediaEvent.adContent.duration.doubleValue];
             NSMutableDictionary* adMetadata = [[NSMutableDictionary alloc] init];
             
             if (mediaEvent.adContent.advertiser != nil) {
@@ -271,6 +271,12 @@ static NSString *const launchAppIdKey = @"launchAppId";
         } else {
             return ACPMediaStreamTypeAod;
         }
+    } else if (mediaEvent.streamType == MPMediaStreamTypeLinear) {
+        return ACPMediaStreamTypeLinear;
+    } else if (mediaEvent.streamType == MPMediaStreamTypePodcast) {
+        return ACPMediaStreamTypePodcast;
+    } else if (mediaEvent.streamType == MPMediaStreamTypeAudiobook) {
+        return ACPMediaStreamTypeAudiobook;
     } else {
         return ACPMediaStreamTypeLive;
     }
